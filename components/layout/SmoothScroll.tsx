@@ -11,7 +11,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     })
 
     // Expose lenis to window for global access (e.g., from Navbar)
-    ;(window as any).portfolioLenis = lenis
+    window.portfolioLenis = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -21,7 +21,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     return () => {
       lenis.destroy()
-      ;(window as any).portfolioLenis = undefined
+      window.portfolioLenis = undefined
     }
   }, [])
 

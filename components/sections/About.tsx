@@ -130,9 +130,9 @@ export default function About() {
               letterSpacing: '-0.02em',
             }}
           >
-            "Full-stack dev who obsesses
+            &quot;Full-stack dev who obsesses
             over both the architecture
-            and the pixel."
+            and the pixel.&quot;
           </motion.blockquote>
 
           {/* Body text */}
@@ -142,11 +142,11 @@ export default function About() {
             animate={inView ? 'visible' : 'hidden'}
             className="font-body text-wave text-lg leading-relaxed mb-10"
           >
-            I'm Suharshit — a B.Tech CSE student at Lovely Professional
+            I&apos;m Suharshit — a B.Tech CSE student at Lovely Professional
             University (CGPA 8.14), building production-grade systems
             since day one. I specialise in type-safe full-stack development
-            with Next.js, TypeScript, and PostgreSQL. When I'm not shipping
-            features, I'm grinding DSA —{' '}
+            with Next.js, TypeScript, and PostgreSQL. When I&apos;m not shipping
+            features, I&apos;m grinding DSA —{' '}
             <span className="text-foam font-bold">LeetCode 1630</span>,
             top 25% globally.
           </motion.p>

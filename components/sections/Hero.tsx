@@ -153,10 +153,11 @@ export default function Hero() {
           >
             {/* Resume download */}
             <MagneticButton>
+              {/* @note: Ensure 'Suharshit_Singh_General_CV.pdf' exists in /public folder */}
               <a
                 href="/Suharshit_Singh_General_CV.pdf"
                 download
-                className="font-mono text-xs font-bold tracking-wider px-10 py-4 rounded-full bg-foam text-ink outline-none transition-all duration-300 hover:bg-snow hover:scale-105 whitespace-nowrap"
+                className="font-mono text-xs font-bold tracking-wider px-10 py-4 rounded-full bg-foam text-ink outline-none transition-all duration-300 hover:bg-snow hover:scale-105 whitespace-nowrap shadow-lg shadow-foam/10"
               >
                 Download Resume ↓
               </a>
@@ -189,16 +190,17 @@ export default function Hero() {
               { label: 'LinkedIn', href: 'https://linkedin.com/in/suharshit-singh0905' },
               { label: 'Email',    href: 'mailto:suharshit123@gmail.com' },
             ].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs tracking-[0.15em] uppercase text-current hover:text-foam transition-colors duration-300 flex items-center gap-2 group"
-              >
-                <span className="w-1 h-1 rounded-full bg-current group-hover:bg-foam transition-colors duration-300" />
-                {label}
-              </a>
+              <MagneticButton key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs tracking-[0.15em] uppercase text-current hover:text-foam transition-colors duration-300 flex items-center gap-2 group p-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-current group-hover:bg-foam transition-colors duration-300" />
+                  {label}
+                </a>
+              </MagneticButton>
             ))}
           </motion.div>
 

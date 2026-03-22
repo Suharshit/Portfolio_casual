@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Suharshit Singh — Portfolio
 
-## Getting Started
+A high-performance, premium developer portfolio built with **Next.js 15**, **TypeScript**, and advanced animation libraries. Designed to showcase full-stack engineering skills with an emphasis on performance and interaction design.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: Vanilla CSS + [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/), [GSAP](https://greensock.com/gsap/) (ScrollTrigger)
+- **Smooth Scroll**: [Lenis](https://lenis.darkroom.engineering/)
+- **Type Safety**: TypeScript (Strict mode)
+- **Icons**: [Lucide React](https://lucide.dev/), [Iconify](https://iconify.design/)
+
+## ✨ Key Features
+
+- 🖱️ **Custom Interactive Cursor**: Dynamic scaling and interaction states.
+- 🌊 **Smooth Scrolling**: Global Lenis integration for fluid navigation.
+- 🧲 **Magnetic Elements**: Tactile button and link interactions using physics-based animations.
+- 📱 **Responsive Design**: Optimized for all screen sizes with masonry grids and fluid typography.
+- 📈 **Performance-First**: Next.js 15 optimizations, lazy loading, and CDN-ready assets.
+- 🌓 **Premium Aesthetic**: Glassmorphism, radial glows, and high-contrast dark theme.
+
+## 🛠️ Components
+
+- **Hero**: Parquee text, parallax ghost name, and magnetic CTAs.
+- **Projects**: Stacking card "peel" effect with scroll-driven animations.
+- **Education**: GSAP-powered horizontal timeline.
+- **Skills**: Interactive scatter chips with category filtering.
+- **Certificates**: 3D tilt-card grid with verified badges.
+- **Achievements**: Animated count-up statistics.
+- **Contact**: Giant parallax typography and marquee dividers.
+
+## 🏃 Getting Started
+
+First, install dependencies:
+
+```bash
+pnpm install
+# or
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build & Audit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build       # Production build
+npm run lint        # ESLint audit
+npm run type-check  # TypeScript type check
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Suharshit Singh](https://github.com/Suharshit). 
+Feel free to use this as inspiration for your own work!

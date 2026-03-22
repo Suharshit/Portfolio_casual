@@ -1,10 +1,17 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next'
+import { Space_Mono } from 'next/font/google'
 import SmoothScroll from '@/components/layout/SmoothScroll'
 import Navbar from '@/components/layout/Navbar'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ScrollProgress from '@/components/ui/ScrollProgress'
+import BackToTop from '@/components/ui/BackToTop'
 import './globals.css'
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
+})
 
 export const metadata: Metadata = {
   title: 'Suharshit Singh — Full-Stack Developer',
@@ -13,22 +20,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Space Mono from Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={spaceMono.variable}>
       <body>
         <SmoothScroll>
           <ScrollProgress />
           <CustomCursor />
           <Navbar />
           <main>{children}</main>
+          <BackToTop />
         </SmoothScroll>
       </body>
     </html>

@@ -163,7 +163,6 @@ export default function Achievements() {
 function AchievementBar({
   item,
   index,
-  inView,
 }: {
   item: (typeof achievements)[0]
   index: number

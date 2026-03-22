@@ -108,25 +108,32 @@ export default function Skills() {
             <motion.button
               key={cat}
               onClick={() => setActive(cat)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(193, 232, 255, 0.05)' }}
               whileTap={{ scale: 0.97 }}
               className="font-mono text-[0.7rem] tracking-widest uppercase
                          px-5 py-2.5 rounded-full transition-all duration-300
-                         cursor-pointer"
+                         cursor-pointer overflow-hidden relative"
               style={{
                 border: isActive
-                  ? '1px solid rgba(193, 232, 255, 0.6)'
+                  ? '1px solid rgba(193, 232, 255, 0.8)'
                   : '1px solid rgba(84, 131, 179, 0.3)',
                 background: isActive
-                  ? 'rgba(193, 232, 255, 0.08)'
+                  ? 'rgba(193, 232, 255, 0.12)'
                   : 'rgba(5, 38, 89, 0.25)',
                 color:  isActive ? '#C1E8FF' : '#5483B3',
                 boxShadow: isActive
-                  ? '0 0 20px rgba(193, 232, 255, 0.12)'
+                  ? '0 0 25px rgba(193, 232, 255, 0.15)'
                   : 'none',
               }}
             >
-              {cat}
+              {isActive && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-foam/10 z-0"
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              <span className="relative z-10">{cat}</span>
             </motion.button>
           )
         })}

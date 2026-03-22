@@ -97,7 +97,7 @@ export default function Contact() {
               letterSpacing: '-0.04em',
             }}
           >
-            <span className="text-snow">LET'S </span>
+            <span className="text-snow">LET&apos;S </span>
             <span
               style={{
                 color:            'transparent',
@@ -253,15 +253,22 @@ function ContactCard({
       {/* Copy feedback / arrow */}
       <div className="mt-auto pt-3">
         {copy ? (
-          <motion.span
-            key={copied ? 'copied' : 'copy'}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-mono text-[0.6rem] tracking-widest uppercase"
-            style={{ color: copied ? '#00FF88' : 'rgba(84,131,179,0.4)' }}
-          >
-            {copied ? '✓ Copied!' : 'Click to copy'}
-          </motion.span>
+            <motion.span
+              key={copied ? 'copied' : 'copy'}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="font-mono text-[0.6rem] tracking-widest uppercase flex items-center gap-2"
+              style={{ color: copied ? '#00FF88' : 'rgba(84,131,179,0.4)' }}
+            >
+              {copied ? (
+                <>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Copied!
+                </>
+              ) : (
+                'Click to copy'
+              )}
+            </motion.span>
         ) : (
           <motion.span
             className="font-mono text-[0.6rem] tracking-widest uppercase

@@ -113,7 +113,6 @@ export default function Projects() {
             key={project.no}
             project={project}
             index={index}
-            total={projects.length}
           />
         ))}
       </div>
@@ -133,11 +132,9 @@ export default function Projects() {
 function ProjectCard({
   project,
   index,
-  total,
 }: {
   project: (typeof projects)[0]
   index: number
-  total: number
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const inView  = useInView(cardRef, { once: true, margin: '-5%' })

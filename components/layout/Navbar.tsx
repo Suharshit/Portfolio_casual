@@ -27,9 +27,14 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <a href="/" className="font-display font-bold text-foam text-2xl tracking-tight">
+      <motion.a
+        href="/"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="font-display font-bold text-foam text-2xl tracking-tight"
+      >
         SS<span className="text-current animate-pulse">_</span>
-      </a>
+      </motion.a>
 
       {/* Desktop nav */}
       <nav className="hidden md:flex items-center gap-8">
@@ -41,7 +46,7 @@ export default function Navbar() {
               e.preventDefault()
               const targetId = link.toLowerCase()
               const target = document.getElementById(targetId)
-              const lenis = (window as any).portfolioLenis
+              const lenis = window.portfolioLenis
               if (lenis && typeof lenis.scrollTo === 'function') {
                 lenis.scrollTo(`#${targetId}`)
               } else if (target) {
@@ -84,7 +89,7 @@ export default function Navbar() {
                 setOpen(false)
                 const targetId = link.toLowerCase()
                 const target = document.getElementById(targetId)
-                const lenis = (window as any).portfolioLenis
+                const lenis = window.portfolioLenis
                 if (lenis && typeof lenis.scrollTo === 'function') {
                   lenis.scrollTo(`#${targetId}`)
                 } else if (target) {
