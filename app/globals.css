@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
+
+/* ── THEME ─────────────────────────────────────────── */
+@theme {
+  --color-ink: #021024;
+  --color-abyss: #052659;
+  --color-current: #5483B3;
+  --color-wave: #7DA0CA;
+  --color-foam: #C1E8FF;
+  --color-snow: #E8F4FF;
+  --color-burgundy: #6B1A2A;
+  --color-cream: #F5F0E8;
+
+  --font-family-display: 'ClashDisplay', sans-serif;
+  --font-family-body: 'CabinetGrotesk', sans-serif;
+  --font-family-mono: 'Space Mono', monospace;
+}
+
+/* ── FONTS ─────────────────────────────────────────── */
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('/fonts/ClashDisplay/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('/fonts/CabinetGrotesk/CabinetGrotesk-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ── CSS VARIABLES ─────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #021024;
+  --abyss: #052659;
+  --current: #5483B3;
+  --wave: #7DA0CA;
+  --foam: #C1E8FF;
+  --white: #E8F4FF;
+  --muted: #5483B3;
+  --burgundy: #6B1A2A;
+  --cream: #F5F0E8;
+
+  --glow-sm: 0 0 15px rgba(193, 232, 255, 0.25);
+  --glow-md: 0 0 35px rgba(193, 232, 255, 0.45);
+  --glow-lg: 0 0 80px rgba(193, 232, 255, 0.60);
+
+  --font-display: 'ClashDisplay', sans-serif;
+  --font-body: 'CabinetGrotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Tailwind Preflight handles the reset automatically */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  background-color: var(--ink);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── NOISE TEXTURE ─────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+/* ── GRID LINES ────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(84, 131, 179, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(84, 131, 179, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 9989;
+}
+
+/* ── SCROLLBAR ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--current);
+  border-radius: 2px;
+}
+
+/* ── SELECTION ─────────────────────────────────────── */
+::selection {
+  background: rgba(193, 232, 255, 0.2);
+  color: var(--foam);
+}
+
+/* ── TOUCH DEVICES ─────────────────────────────────── */
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── FONT UTILITY CLASSES ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
