@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ScrollProgress from '@/components/ui/ScrollProgress'
 import BackToTop from '@/components/ui/BackToTop'
+import { Analytics } from "@vercel/analytics/next"
 import './globals.css'
 
 const spaceMono = Space_Mono({
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={spaceMono.variable}>
       <body>
+        <Analytics />
         <SmoothScroll>
           <ScrollProgress />
           <CustomCursor />
