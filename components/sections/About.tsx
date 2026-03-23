@@ -59,44 +59,114 @@ export default function About() {
           variants={fadeLeft}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="relative w-full max-w-[500px]"
-          style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%)',
-          }}
+          className="relative flex items-end justify-center"
+          style={{ minHeight: '520px' }}
         >
-          {/* Photo */}
-          <Image
-            src="/me.jpg"
-            alt="Suharshit Singh"
-            width={500}
-            height={600}
-            className="w-full h-full object-cover"
-            style={{
-              filter: 'contrast(1.05) saturate(0.85)',
-              border: '1px solid rgba(84, 131, 179, 0.35)',
-              display: 'block',
-              objectPosition: 'center 20%',
-            }}
-            priority
-          />
-
-          {/* Dark gradient overlay — bottom fade */}
+          {/* ── GLOW RING behind figure ── */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2
+                      w-[320px] h-[320px] rounded-full pointer-events-none"
             style={{
-              background: 'linear-gradient(to top, rgba(2,16,36,0.7) 0%, transparent 55%)',
+              background: 'radial-gradient(circle, rgba(125,160,202,0.18) 0%, transparent 70%)',
+              filter: 'blur(24px)',
             }}
           />
 
-          {/* Name tag — sits on the photo bottom */}
-          <div className="absolute bottom-6 left-6">
-            <p className="font-mono text-xs tracking-[0.15em] uppercase text-wave mb-1">
-              Currently based in
-            </p>
-            <p className="font-display font-bold text-foam text-lg leading-tight">
-              Jalandhar, Punjab
-            </p>
+          {/* ── GRID CIRCLE — decorative ring ── */}
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2
+                      w-[380px] h-[380px] rounded-full pointer-events-none"
+            style={{
+              border: '1px solid rgba(84, 131, 179, 0.15)',
+              boxShadow: '0 0 0 40px rgba(84,131,179,0.04), 0 0 0 80px rgba(84,131,179,0.02)',
+            }}
+          />
+
+          {/* ── SCAN LINES overlay ── */}
+          <div
+            className="absolute inset-0 pointer-events-none z-20"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(2,16,36,0.08) 3px, rgba(2,16,36,0.08) 4px)',
+              mixBlendMode: 'multiply',
+            }}
+          />
+
+          {/* ── ACTUAL IMAGE ── */}
+          <div className="relative z-10">
+            <Image
+              src="/suharshitsingh.png"
+              alt="Suharshit Singh"
+              width={520}
+              height={620}
+              className="object-contain object-bottom select-none"
+              style={{
+                filter: 'drop-shadow(0 0 40px rgba(125,160,202,0.35)) drop-shadow(0 0 80px rgba(5,38,89,0.6))',
+                maxHeight: '620px',
+              }}
+              priority
+              draggable={false}
+            />
           </div>
+
+          {/* ── BOTTOM FADE — blends into page ── */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-30"
+            style={{
+              background: 'linear-gradient(to top, #021024 0%, transparent 100%)',
+            }}
+          />
+
+          {/* ── SIDE ACCENT LINE — left ── */}
+          <div
+            className="absolute left-4 top-[15%] bottom-[15%] w-px pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, transparent, rgba(193,232,255,0.2), transparent)',
+            }}
+          />
+
+          {/* ── NAME TAG — bottom overlay ── */}
+          <div
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40
+                      flex flex-col items-center gap-1 text-center"
+          >
+            <div
+              className="px-4 py-2 rounded-sm backdrop-blur-sm"
+              style={{
+                background: 'rgba(5, 38, 89, 0.6)',
+                border: '1px solid rgba(84,131,179,0.3)',
+              }}
+            >
+              <p className="font-mono text-[0.6rem] tracking-[0.2em] uppercase text-current mb-0.5">
+                Currently based in
+              </p>
+              <p className="font-display font-bold text-foam text-base leading-tight">
+                Jalandhar, Punjab
+              </p>
+            </div>
+          </div>
+          {/* ── AVAILABLE badge — top right of photo ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="absolute top-8 right-0 z-40 flex items-center gap-2 px-3 py-2 rounded-full"
+            style={{
+              background: 'rgba(5, 38, 89, 0.8)',
+              border: '1px solid rgba(0, 255, 136, 0.3)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            <motion.div
+              animate={{ scale: [1, 1.4, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: '#00FF88' }}
+            />
+            <span className="font-mono text-[0.6rem] tracking-[0.15em] uppercase"
+              style={{ color: '#00FF88' }}>
+              Open to work
+            </span>
+          </motion.div>
         </motion.div>
 
         {/* ── RIGHT: BIO ── */}
