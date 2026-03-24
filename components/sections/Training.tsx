@@ -211,7 +211,7 @@ export default function Training() {
 
             {/* Certificate link */}
             <a
-              href={training.certificate}
+              href="https://drive.google.com/file/d/15NkfwDv2u5kd4CeDABVoIwEOKf0ZnqsK/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-xs tracking-widest uppercase
