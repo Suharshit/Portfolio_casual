@@ -44,13 +44,13 @@ const education = [
 
 export default function Education() {
   const sectionRef = useRef<HTMLElement>(null)
-  const trackRef   = useRef<HTMLDivElement>(null)
-  const titleRef   = useRef<HTMLDivElement>(null)
-  const inView     = useInView(titleRef, { once: true })
+  const trackRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(titleRef, { once: true })
 
   useEffect(() => {
     const section = sectionRef.current
-    const track   = trackRef.current
+    const track = trackRef.current
     if (!section || !track) return
 
     // Wait for layout to settle
@@ -173,7 +173,7 @@ function EducationCard({
   edu: (typeof education)[0]
   index: number
 }) {
-  const ref    = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-5%' })
 
   return (
@@ -237,8 +237,8 @@ function EducationCard({
           className="font-mono text-[0.65rem] tracking-[0.15em] uppercase
                      self-start px-3 py-1 rounded-full"
           style={{
-            color:   edu.tag === 'Ongoing' ? '#C1E8FF' : '#7DA0CA',
-            border:  `1px solid ${edu.tag === 'Ongoing'
+            color: edu.tag === 'Ongoing' ? '#C1E8FF' : '#7DA0CA',
+            border: `1px solid ${edu.tag === 'Ongoing'
               ? 'rgba(193,232,255,0.35)'
               : 'rgba(125,160,202,0.25)'}`,
             background: 'rgba(2, 16, 36, 0.5)',

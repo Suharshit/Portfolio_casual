@@ -12,17 +12,17 @@ const stats = [
 const learning = ['AWS Advanced', 'System Design', 'Open Source']
 
 const fadeLeft: Variants = {
-  hidden:  { opacity: 0, x: -60 },
+  hidden: { opacity: 0, x: -60 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
 }
 
 const fadeRight: Variants = {
-  hidden:  { opacity: 0, x: 60 },
+  hidden: { opacity: 0, x: 60 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 } },
 }
 
 const fadeUp: Variants = {
-  hidden:  { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
 }
 

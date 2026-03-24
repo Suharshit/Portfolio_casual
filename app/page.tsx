@@ -6,13 +6,15 @@ import Projects  from '@/components/sections/Projects'
 import Certificates from '@/components/sections/Certificates'
 import Achievements from '@/components/sections/Achievements'
 import Contact from '@/components/sections/Contact'
+import Training from '@/components/sections/Training'
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Hero />
       <About />
       <Education />
+      <Training />
       <Skills />
       <Projects />
       <Certificates />

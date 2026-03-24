@@ -17,12 +17,12 @@ const containerVariants: Variants = {
 }
 
 const lineVariants: Variants = {
-  hidden:   { y: '100%', opacity: 0 },
-  visible:  { y: '0%', opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { y: '100%', opacity: 0 },
+  visible: { y: '0%', opacity: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
 }
 
 const fadeUp = (delay: number): Variants => ({
-  hidden:  { y: 24, opacity: 0 },
+  hidden: { y: 24, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay } },
 })
 
@@ -34,8 +34,8 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
 
-  const ghostX       = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
-  const panelY       = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
+  const ghostX = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
+  const panelY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const panelOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   return (
@@ -186,9 +186,9 @@ export default function Hero() {
             className="flex gap-8 mt-10 pt-8 border-t border-current/20"
           >
             {[
-              { label: 'GitHub',   href: 'https://github.com/Suharshit' },
+              { label: 'GitHub', href: 'https://github.com/Suharshit' },
               { label: 'LinkedIn', href: 'https://linkedin.com/in/suharshit-singh0905' },
-              { label: 'Email',    href: 'mailto:suharshit123@gmail.com' },
+              { label: 'Email', href: 'mailto:suharshit123@gmail.com' },
             ].map(({ label, href }) => (
               <MagneticButton key={label}>
                 <a

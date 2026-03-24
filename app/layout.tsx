@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: 'Building performant full-stack systems.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={spaceMono.variable}>
       <body>

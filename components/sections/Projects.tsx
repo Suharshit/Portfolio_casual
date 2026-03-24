@@ -4,11 +4,11 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 
 const projects = [
   {
-    no:       '01',
-    name:     'Vibely',
-    tagline:  'Event-Centric Photo Sharing Platform',
-    period:   'Dec 2025 – Feb 2026',
-    tech:     ['Next.js 14', 'TypeScript', 'Supabase', 'ImageKit', 'Redis', 'Turborepo'],
+    no: '01',
+    name: 'Vibely',
+    tagline: 'Event-Centric Photo Sharing Platform',
+    period: 'Dec 2025 – Feb 2026',
+    tech: ['Next.js 14', 'TypeScript', 'Supabase', 'ImageKit', 'Redis', 'Turborepo'],
     stats: [
       { val: '~40%', label: 'Cross-platform overhead reduced' },
       { val: '~60%', label: 'Asset load time cut via CDN' },
@@ -21,20 +21,20 @@ const projects = [
       'Automated photo-expiry via Vercel Cron — entire platform on free-tier infrastructure',
     ],
     github: 'https://github.com/Suharshit/vibely',
-    live:   'https://vibelyevents.vercel.app',
+    live: 'https://vibelyevents.vercel.app',
     accent: '#C1E8FF',
-    bg:     'rgba(5, 38, 89, 0.5)',
+    bg: 'rgba(5, 38, 89, 0.5)',
   },
   {
-    no:       '02',
-    name:     'PeerLink',
-    tagline:  'Serverless LAN Mesh Platform',
-    period:   'Sep 2025 – Dec 2025',
-    tech:     ['Java', 'TCP/UDP Sockets', 'Multi-threading', 'Java NIO', 'JSON'],
+    no: '02',
+    name: 'PeerLink',
+    tagline: 'Serverless LAN Mesh Platform',
+    period: 'Sep 2025 – Dec 2025',
+    tech: ['Java', 'TCP/UDP Sockets', 'Multi-threading', 'Java NIO', 'JSON'],
     stats: [
-      { val: '10',   label: 'Peers with zero thread contention' },
+      { val: '10', label: 'Peers with zero thread contention' },
       { val: 'Zero', label: 'Residual disk artifacts on close' },
-      { val: 'No',   label: 'Central server required' },
+      { val: 'No', label: 'Central server required' },
     ],
     bullets: [
       'P2P LAN tool using UDP broadcast for zero-config device discovery across subnets',
@@ -43,19 +43,19 @@ const projects = [
       'JSON-serialised message framing over raw TCP with custom protocol headers',
     ],
     github: 'https://github.com/Suharshit/PeerLink',
-    live:   null,
+    live: null,
     accent: '#7DA0CA',
-    bg:     'rgba(2, 16, 36, 0.6)',
+    bg: 'rgba(2, 16, 36, 0.6)',
   },
   {
-    no:       '03',
-    name:     'DSAViz',
-    tagline:  'Algorithm Visualization Platform',
-    period:   'Jun 2025 – Jul 2025',
-    tech:     ['Next.js', 'React.js', 'TypeScript', 'Shadcn/UI', 'Tailwind CSS', 'Vercel'],
+    no: '03',
+    name: 'DSAViz',
+    tagline: 'Algorithm Visualization Platform',
+    period: 'Jun 2025 – Jul 2025',
+    tech: ['Next.js', 'React.js', 'TypeScript', 'Shadcn/UI', 'Tailwind CSS', 'Vercel'],
     stats: [
-      { val: '10+',   label: 'Algorithms visualized' },
-      { val: '<2s',   label: 'LCP at 200 concurrent users' },
+      { val: '10+', label: 'Algorithms visualized' },
+      { val: '<2s', label: 'LCP at 200 concurrent users' },
       { val: '<100ms', label: 'Interaction feedback time' },
     ],
     bullets: [
@@ -65,16 +65,16 @@ const projects = [
       'Customizable input controls for injecting arbitrary datasets',
     ],
     github: 'https://github.com/Suharshit/DSAViz',
-    live:   'https://dsa-visualizer-suharshit-singh.vercel.app',
+    live: 'https://dsa-visualizer-suharshit-singh.vercel.app',
     accent: '#5483B3',
-    bg:     'rgba(5, 38, 89, 0.3)',
+    bg: 'rgba(5, 38, 89, 0.3)',
   },
 ]
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null)
-  const titleRef   = useRef<HTMLDivElement>(null)
-  const inView     = useInView(titleRef, { once: true })
+  const titleRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(titleRef, { once: true })
 
   return (
     <section
@@ -137,7 +137,7 @@ function ProjectCard({
   index: number
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
-  const inView  = useInView(cardRef, { once: true, margin: '-5%' })
+  const inView = useInView(cardRef, { once: true, margin: '-5%' })
 
   // Each card scrolls at a slightly different rate — creates the peel effect
   const { scrollYProgress } = useScroll({
@@ -145,9 +145,9 @@ function ProjectCard({
     offset: ['start end', 'end start'],
   })
 
-  const y       = useTransform(scrollYProgress, [0, 1], [60,  -60])
+  const y = useTransform(scrollYProgress, [0, 1], [60, -60])
   const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.4])
-  const scale   = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.97])
+  const scale = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.95, 1, 1, 0.97])
 
   return (
     <div
@@ -160,9 +160,9 @@ function ProjectCard({
           y,
           opacity,
           scale,
-          background:    project.bg,
-          border:        `1px solid rgba(84, 131, 179, 0.2)`,
-          borderRadius:  '4px',
+          background: project.bg,
+          border: `1px solid rgba(84, 131, 179, 0.2)`,
+          borderRadius: '4px',
           backdropFilter: 'blur(12px)',
         }}
         initial={{ opacity: 0, y: 80 }}
@@ -178,9 +178,9 @@ function ProjectCard({
                      leading-none select-none pointer-events-none
                      opacity-[0.06] z-0"
           style={{
-            fontSize:           'clamp(6rem, 14vw, 13rem)',
-            color:              project.accent,
-            letterSpacing:      '-0.03em',
+            fontSize: 'clamp(6rem, 14vw, 13rem)',
+            color: project.accent,
+            letterSpacing: '-0.03em',
           }}
         >
           {project.name.toUpperCase()}
@@ -211,7 +211,7 @@ function ProjectCard({
               <h3
                 className="font-display font-bold text-snow leading-none mb-2"
                 style={{
-                  fontSize:      'clamp(2.4rem, 5vw, 4.5rem)',
+                  fontSize: 'clamp(2.4rem, 5vw, 4.5rem)',
                   letterSpacing: '-0.03em',
                 }}
               >
@@ -233,8 +233,8 @@ function ProjectCard({
                   className="font-mono text-[0.65rem] tracking-wider uppercase
                              px-3 py-1 rounded"
                   style={{
-                    color:      project.accent,
-                    border:     `1px solid ${project.accent}22`,
+                    color: project.accent,
+                    border: `1px solid ${project.accent}22`,
                     background: `${project.accent}08`,
                   }}
                 >
@@ -306,7 +306,7 @@ function ProjectCard({
                   className="font-display font-bold leading-none mb-2"
                   style={{
                     fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
-                    color:    project.accent,
+                    color: project.accent,
                   }}
                 >
                   {val}
